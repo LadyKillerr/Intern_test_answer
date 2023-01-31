@@ -1,0 +1,21 @@
+def fibonacci_sequence(n):
+    f0 = 0
+    f1 = 1
+    fn = 1
+
+    if n < 0:
+        return -1
+    elif (n == 0) or (n == 1):
+        return n
+    else:
+        for i in range(2, n):
+            f0 = f1
+            f1 = fn
+            fn = f0 + f1
+        return fn
+
+n = int(input('Hay nhap vao so nguyen duong n =  '))
+
+print('ket qua cua day Fibonacci la:',fibonacci_sequence(n) )
+ 
+   

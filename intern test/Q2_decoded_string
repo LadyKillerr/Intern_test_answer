@@ -1,0 +1,22 @@
+
+# ý tưởng là làm 1 cái stack, duyệt từng ký tự đầu vào lần lượt cho vào stack,
+# thấy cái ký tự thì pop ']' ra xử lí đến ký tự '[' trong stack, 
+# rồi lại push vào tiếp, duyệt đến stack empty thì dừng
+
+class Quizsolving:
+	def decodeString(self, s: str) -> str:
+
+		st = []
+
+		for c in s:
+			if c == ']':
+				s = ''
+				while st[-1] != '[': s = st.pop() + s
+				st.pop()
+				k = ''
+				while st and st[-1].isdigit(): k = st.pop() + k
+				k = int(k)
+				st.append(s*k)
+			else : st.append(c)
+
+		return ''.join(st)
